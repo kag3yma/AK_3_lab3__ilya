@@ -1,0 +1,207 @@
+in_source: |-
+  ."Hello World!"
+in_stdin: foo
+io_type: str
+out_code: |-
+  {
+    "code": [
+      {
+        "opcode": "lit",
+        "arg": 0
+      },
+      {
+        "opcode": "dup"
+      },
+      {
+        "opcode": "load"
+      },
+      {
+        "opcode": "swap"
+      },
+      {
+        "opcode": "inc"
+      },
+      {
+        "opcode": "dup"
+      },
+      {
+        "opcode": "load"
+      },
+      {
+        "opcode": "lit",
+        "arg": 255
+      },
+      {
+        "opcode": "save"
+      },
+      {
+        "opcode": "pop"
+      },
+      {
+        "opcode": "swap"
+      },
+      {
+        "opcode": "dec"
+      },
+      {
+        "opcode": "jnz",
+        "arg": 3
+      },
+      {
+        "opcode": "pop"
+      },
+      {
+        "opcode": "pop"
+      },
+      {
+        "opcode": "hlt"
+      }
+    ],
+    "data": [
+      12,
+      72,
+      101,
+      108,
+      108,
+      111,
+      32,
+      87,
+      111,
+      114,
+      108,
+      100,
+      33
+    ],
+    "start": 0
+  }
+out_log: |
+  DEBUG    root:machine.py:419 TICK:    0 PC:    0 AR:    0 Z_FLAG: 1 N_FLAG: 0  	{'opcode': 'lit', 'arg': 0}      	DATA_STACK: [0, 0]                                               	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:    3 PC:    1 AR:    0 Z_FLAG: 1 N_FLAG: 0  	{'opcode': 'dup'}                	DATA_STACK: [0, 0, 0]                                            	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:    6 PC:    2 AR:    0 Z_FLAG: 1 N_FLAG: 0  	{'opcode': 'load'}               	DATA_STACK: [0, 0, 0, 0]                                         	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:   10 PC:    3 AR:    0 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'swap'}               	DATA_STACK: [0, 0, 0, 12]                                        	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:   15 PC:    4 AR:    0 Z_FLAG: 1 N_FLAG: 0  	{'opcode': 'inc'}                	DATA_STACK: [0, 0, 12, 0]                                        	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:   18 PC:    5 AR:    0 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'dup'}                	DATA_STACK: [0, 0, 12, 1]                                        	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:   21 PC:    6 AR:    0 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'load'}               	DATA_STACK: [0, 0, 12, 1, 1]                                     	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:   25 PC:    7 AR:    1 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'lit', 'arg': 255}    	DATA_STACK: [0, 0, 12, 1, 72]                                    	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:   28 PC:    8 AR:    1 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'save'}               	DATA_STACK: [0, 0, 12, 1, 72, 255]                               	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:   33 PC:    9 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'pop'}                	DATA_STACK: [0, 0, 12, 1, 72]                                    	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:   36 PC:   10 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'swap'}               	DATA_STACK: [0, 0, 12, 1]                                        	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:   41 PC:   11 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'dec'}                	DATA_STACK: [0, 0, 1, 12]                                        	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:   44 PC:   12 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'jnz', 'arg': 3}      	DATA_STACK: [0, 0, 1, 11]                                        	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:   47 PC:    3 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'swap'}               	DATA_STACK: [0, 0, 1, 11]                                        	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:   52 PC:    4 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'inc'}                	DATA_STACK: [0, 0, 11, 1]                                        	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:   55 PC:    5 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'dup'}                	DATA_STACK: [0, 0, 11, 2]                                        	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:   58 PC:    6 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'load'}               	DATA_STACK: [0, 0, 11, 2, 2]                                     	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:   62 PC:    7 AR:    2 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'lit', 'arg': 255}    	DATA_STACK: [0, 0, 11, 2, 101]                                   	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:   65 PC:    8 AR:    2 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'save'}               	DATA_STACK: [0, 0, 11, 2, 101, 255]                              	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:   70 PC:    9 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'pop'}                	DATA_STACK: [0, 0, 11, 2, 101]                                   	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:   73 PC:   10 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'swap'}               	DATA_STACK: [0, 0, 11, 2]                                        	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:   78 PC:   11 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'dec'}                	DATA_STACK: [0, 0, 2, 11]                                        	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:   81 PC:   12 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'jnz', 'arg': 3}      	DATA_STACK: [0, 0, 2, 10]                                        	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:   84 PC:    3 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'swap'}               	DATA_STACK: [0, 0, 2, 10]                                        	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:   89 PC:    4 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'inc'}                	DATA_STACK: [0, 0, 10, 2]                                        	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:   92 PC:    5 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'dup'}                	DATA_STACK: [0, 0, 10, 3]                                        	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:   95 PC:    6 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'load'}               	DATA_STACK: [0, 0, 10, 3, 3]                                     	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:   99 PC:    7 AR:    3 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'lit', 'arg': 255}    	DATA_STACK: [0, 0, 10, 3, 108]                                   	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  102 PC:    8 AR:    3 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'save'}               	DATA_STACK: [0, 0, 10, 3, 108, 255]                              	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  107 PC:    9 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'pop'}                	DATA_STACK: [0, 0, 10, 3, 108]                                   	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  110 PC:   10 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'swap'}               	DATA_STACK: [0, 0, 10, 3]                                        	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  115 PC:   11 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'dec'}                	DATA_STACK: [0, 0, 3, 10]                                        	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  118 PC:   12 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'jnz', 'arg': 3}      	DATA_STACK: [0, 0, 3, 9]                                         	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  121 PC:    3 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'swap'}               	DATA_STACK: [0, 0, 3, 9]                                         	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  126 PC:    4 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'inc'}                	DATA_STACK: [0, 0, 9, 3]                                         	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  129 PC:    5 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'dup'}                	DATA_STACK: [0, 0, 9, 4]                                         	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  132 PC:    6 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'load'}               	DATA_STACK: [0, 0, 9, 4, 4]                                      	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  136 PC:    7 AR:    4 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'lit', 'arg': 255}    	DATA_STACK: [0, 0, 9, 4, 108]                                    	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  139 PC:    8 AR:    4 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'save'}               	DATA_STACK: [0, 0, 9, 4, 108, 255]                               	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  144 PC:    9 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'pop'}                	DATA_STACK: [0, 0, 9, 4, 108]                                    	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  147 PC:   10 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'swap'}               	DATA_STACK: [0, 0, 9, 4]                                         	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  152 PC:   11 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'dec'}                	DATA_STACK: [0, 0, 4, 9]                                         	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  155 PC:   12 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'jnz', 'arg': 3}      	DATA_STACK: [0, 0, 4, 8]                                         	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  158 PC:    3 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'swap'}               	DATA_STACK: [0, 0, 4, 8]                                         	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  163 PC:    4 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'inc'}                	DATA_STACK: [0, 0, 8, 4]                                         	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  166 PC:    5 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'dup'}                	DATA_STACK: [0, 0, 8, 5]                                         	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  169 PC:    6 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'load'}               	DATA_STACK: [0, 0, 8, 5, 5]                                      	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  173 PC:    7 AR:    5 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'lit', 'arg': 255}    	DATA_STACK: [0, 0, 8, 5, 111]                                    	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  176 PC:    8 AR:    5 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'save'}               	DATA_STACK: [0, 0, 8, 5, 111, 255]                               	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  181 PC:    9 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'pop'}                	DATA_STACK: [0, 0, 8, 5, 111]                                    	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  184 PC:   10 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'swap'}               	DATA_STACK: [0, 0, 8, 5]                                         	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  189 PC:   11 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'dec'}                	DATA_STACK: [0, 0, 5, 8]                                         	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  192 PC:   12 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'jnz', 'arg': 3}      	DATA_STACK: [0, 0, 5, 7]                                         	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  195 PC:    3 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'swap'}               	DATA_STACK: [0, 0, 5, 7]                                         	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  200 PC:    4 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'inc'}                	DATA_STACK: [0, 0, 7, 5]                                         	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  203 PC:    5 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'dup'}                	DATA_STACK: [0, 0, 7, 6]                                         	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  206 PC:    6 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'load'}               	DATA_STACK: [0, 0, 7, 6, 6]                                      	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  210 PC:    7 AR:    6 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'lit', 'arg': 255}    	DATA_STACK: [0, 0, 7, 6, 32]                                     	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  213 PC:    8 AR:    6 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'save'}               	DATA_STACK: [0, 0, 7, 6, 32, 255]                                	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  218 PC:    9 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'pop'}                	DATA_STACK: [0, 0, 7, 6, 32]                                     	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  221 PC:   10 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'swap'}               	DATA_STACK: [0, 0, 7, 6]                                         	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  226 PC:   11 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'dec'}                	DATA_STACK: [0, 0, 6, 7]                                         	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  229 PC:   12 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'jnz', 'arg': 3}      	DATA_STACK: [0, 0, 6, 6]                                         	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  232 PC:    3 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'swap'}               	DATA_STACK: [0, 0, 6, 6]                                         	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  237 PC:    4 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'inc'}                	DATA_STACK: [0, 0, 6, 6]                                         	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  240 PC:    5 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'dup'}                	DATA_STACK: [0, 0, 6, 7]                                         	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  243 PC:    6 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'load'}               	DATA_STACK: [0, 0, 6, 7, 7]                                      	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  247 PC:    7 AR:    7 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'lit', 'arg': 255}    	DATA_STACK: [0, 0, 6, 7, 87]                                     	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  250 PC:    8 AR:    7 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'save'}               	DATA_STACK: [0, 0, 6, 7, 87, 255]                                	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  255 PC:    9 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'pop'}                	DATA_STACK: [0, 0, 6, 7, 87]                                     	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  258 PC:   10 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'swap'}               	DATA_STACK: [0, 0, 6, 7]                                         	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  263 PC:   11 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'dec'}                	DATA_STACK: [0, 0, 7, 6]                                         	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  266 PC:   12 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'jnz', 'arg': 3}      	DATA_STACK: [0, 0, 7, 5]                                         	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  269 PC:    3 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'swap'}               	DATA_STACK: [0, 0, 7, 5]                                         	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  274 PC:    4 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'inc'}                	DATA_STACK: [0, 0, 5, 7]                                         	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  277 PC:    5 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'dup'}                	DATA_STACK: [0, 0, 5, 8]                                         	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  280 PC:    6 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'load'}               	DATA_STACK: [0, 0, 5, 8, 8]                                      	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  284 PC:    7 AR:    8 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'lit', 'arg': 255}    	DATA_STACK: [0, 0, 5, 8, 111]                                    	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  287 PC:    8 AR:    8 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'save'}               	DATA_STACK: [0, 0, 5, 8, 111, 255]                               	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  292 PC:    9 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'pop'}                	DATA_STACK: [0, 0, 5, 8, 111]                                    	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  295 PC:   10 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'swap'}               	DATA_STACK: [0, 0, 5, 8]                                         	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  300 PC:   11 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'dec'}                	DATA_STACK: [0, 0, 8, 5]                                         	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  303 PC:   12 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'jnz', 'arg': 3}      	DATA_STACK: [0, 0, 8, 4]                                         	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  306 PC:    3 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'swap'}               	DATA_STACK: [0, 0, 8, 4]                                         	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  311 PC:    4 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'inc'}                	DATA_STACK: [0, 0, 4, 8]                                         	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  314 PC:    5 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'dup'}                	DATA_STACK: [0, 0, 4, 9]                                         	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  317 PC:    6 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'load'}               	DATA_STACK: [0, 0, 4, 9, 9]                                      	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  321 PC:    7 AR:    9 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'lit', 'arg': 255}    	DATA_STACK: [0, 0, 4, 9, 114]                                    	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  324 PC:    8 AR:    9 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'save'}               	DATA_STACK: [0, 0, 4, 9, 114, 255]                               	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  329 PC:    9 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'pop'}                	DATA_STACK: [0, 0, 4, 9, 114]                                    	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  332 PC:   10 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'swap'}               	DATA_STACK: [0, 0, 4, 9]                                         	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  337 PC:   11 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'dec'}                	DATA_STACK: [0, 0, 9, 4]                                         	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  340 PC:   12 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'jnz', 'arg': 3}      	DATA_STACK: [0, 0, 9, 3]                                         	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  343 PC:    3 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'swap'}               	DATA_STACK: [0, 0, 9, 3]                                         	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  348 PC:    4 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'inc'}                	DATA_STACK: [0, 0, 3, 9]                                         	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  351 PC:    5 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'dup'}                	DATA_STACK: [0, 0, 3, 10]                                        	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  354 PC:    6 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'load'}               	DATA_STACK: [0, 0, 3, 10, 10]                                    	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  358 PC:    7 AR:   10 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'lit', 'arg': 255}    	DATA_STACK: [0, 0, 3, 10, 108]                                   	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  361 PC:    8 AR:   10 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'save'}               	DATA_STACK: [0, 0, 3, 10, 108, 255]                              	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  366 PC:    9 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'pop'}                	DATA_STACK: [0, 0, 3, 10, 108]                                   	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  369 PC:   10 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'swap'}               	DATA_STACK: [0, 0, 3, 10]                                        	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  374 PC:   11 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'dec'}                	DATA_STACK: [0, 0, 10, 3]                                        	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  377 PC:   12 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'jnz', 'arg': 3}      	DATA_STACK: [0, 0, 10, 2]                                        	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  380 PC:    3 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'swap'}               	DATA_STACK: [0, 0, 10, 2]                                        	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  385 PC:    4 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'inc'}                	DATA_STACK: [0, 0, 2, 10]                                        	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  388 PC:    5 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'dup'}                	DATA_STACK: [0, 0, 2, 11]                                        	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  391 PC:    6 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'load'}               	DATA_STACK: [0, 0, 2, 11, 11]                                    	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  395 PC:    7 AR:   11 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'lit', 'arg': 255}    	DATA_STACK: [0, 0, 2, 11, 100]                                   	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  398 PC:    8 AR:   11 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'save'}               	DATA_STACK: [0, 0, 2, 11, 100, 255]                              	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  403 PC:    9 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'pop'}                	DATA_STACK: [0, 0, 2, 11, 100]                                   	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  406 PC:   10 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'swap'}               	DATA_STACK: [0, 0, 2, 11]                                        	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  411 PC:   11 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'dec'}                	DATA_STACK: [0, 0, 11, 2]                                        	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  414 PC:   12 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'jnz', 'arg': 3}      	DATA_STACK: [0, 0, 11, 1]                                        	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  417 PC:    3 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'swap'}               	DATA_STACK: [0, 0, 11, 1]                                        	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  422 PC:    4 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'inc'}                	DATA_STACK: [0, 0, 1, 11]                                        	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  425 PC:    5 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'dup'}                	DATA_STACK: [0, 0, 1, 12]                                        	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  428 PC:    6 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'load'}               	DATA_STACK: [0, 0, 1, 12, 12]                                    	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  432 PC:    7 AR:   12 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'lit', 'arg': 255}    	DATA_STACK: [0, 0, 1, 12, 33]                                    	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  435 PC:    8 AR:   12 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'save'}               	DATA_STACK: [0, 0, 1, 12, 33, 255]                               	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  440 PC:    9 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'pop'}                	DATA_STACK: [0, 0, 1, 12, 33]                                    	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  443 PC:   10 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'swap'}               	DATA_STACK: [0, 0, 1, 12]                                        	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  448 PC:   11 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'dec'}                	DATA_STACK: [0, 0, 12, 1]                                        	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  451 PC:   12 AR:  255 Z_FLAG: 1 N_FLAG: 0  	{'opcode': 'jnz', 'arg': 3}      	DATA_STACK: [0, 0, 12, 0]                                        	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  453 PC:   13 AR:  255 Z_FLAG: 1 N_FLAG: 0  	{'opcode': 'pop'}                	DATA_STACK: [0, 0, 12, 0]                                        	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  456 PC:   14 AR:  255 Z_FLAG: 0 N_FLAG: 1  	{'opcode': 'pop'}                	DATA_STACK: [0, 0, 12]                                           	RETURN_STACK: []
+  DEBUG    root:machine.py:424 TICK:  459 PC:   15 AR:  255 Z_FLAG: 1 N_FLAG: 0  	{'opcode': 'hlt'}                	DATA_STACK: [0, 0]                                               	RETURN_STACK: []
+  INFO     root:machine.py:432 output buffer: Hello World!
+out_stdout: |
+  output: Hello World!
+  instr_counter:  125 ticks:  461
